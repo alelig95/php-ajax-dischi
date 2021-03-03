@@ -1,20 +1,17 @@
 <?php
 require_once __DIR__ . '/../database/database.php';
 
-function filtroPerGenere($array, $genere) {
-  $res = [];
-  foreach ($array as $album) {
-
-  }
-  return $res;
-}
-
-$genreQuery = $_GET['genre'];
-if (!empty($genreQuery)) {
-  $dischi = filtroPerGenere($dischi, $genreQuery);
-}
-
 header('Content-Type: application/json');
 
-$listaDischi = json_encode($dischi);
-echo $listaDischi;
+$genreQuery = $_GET['genre'];
+if (empty($genreQuery)) {
+  echo json_encode($dischi);
+} else {
+  $res = [];
+  foreach ($dischi as $value) {
+    if ($value['genre'] == $genreQuery) {
+      $res[] = $value;
+    }
+  }
+  echo json_encode($res);
+}

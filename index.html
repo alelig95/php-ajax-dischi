@@ -17,13 +17,13 @@
         </div>
       </header>
 
-      <select v-model="selected">
+      <select v-model="selected" @change="selezioneGenere">
         <option value="">Tutti gli album</option>
         <option v-for="item in generi">{{item}}</option>
       </select>
 
       <div class="cds-container container">
-        <div class="cd" v-for="item in listaDischi" v-if="item.genre == selected || selected == ''">
+        <div class="cd" v-for="item in listaDischi">
           <img :src="item.poster" alt="">
           <h3>{{item.title}}</h3>
           <span class="author">{{item.author}}</span>
