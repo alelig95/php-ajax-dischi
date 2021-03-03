@@ -2,10 +2,32 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="css/app.css">
     <title></title>
   </head>
   <body>
 
+    <div id="app">
+
+      <header>
+        <div class="container">
+          <img class="logo" src="https://1000logos.net/wp-content/uploads/2017/08/Spotify-Logo.png" alt="logo" />
+        </div>
+      </header>
+
+      <div class="cds-container container">
+        <div class="cd" v-for="item in listaDischi">
+          <img :src="item.poster" alt="">
+          <h3>{{item.title}}</h3>
+          <span class="author">{{item.author}}</span>
+          <span class="year">{{item.year}}</span>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="js/script.js" charset="utf-8"></script>
   </body>
 </html>

@@ -1,0 +1,7 @@
+<?php
+require_once __DIR__ . '/../database/database.php';
+
+header('Content-Type: application/json');
+
+$listaDischi = json_encode($dischi);
+echo $listaDischi;
